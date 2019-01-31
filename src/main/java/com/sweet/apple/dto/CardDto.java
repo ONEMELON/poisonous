@@ -2,6 +2,7 @@ package com.sweet.apple.dto;
 
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
@@ -11,7 +12,7 @@ import java.util.Set;
  * @Description:
  */
 @Component
-public class CardDto {
+public class CardDto implements Serializable{
     private Set<String> card;
     private String name;
     private String age;

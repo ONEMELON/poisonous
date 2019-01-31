@@ -74,13 +74,13 @@ public class HbaseTemplate {
                 quotaResult.setQuota(map);
                 resultMap.put(card,quotaResult);
 
-                System.out.println("=====1====" + quotaResult.toString());
+//                System.out.println("=====1====" + quotaResult.toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
         }
-        System.out.println("=====3====" + resultMap);
+//        System.out.println("=====3====" + resultMap);
 
         return  resultMap;
     }
