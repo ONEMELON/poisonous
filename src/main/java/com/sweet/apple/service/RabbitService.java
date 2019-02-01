@@ -37,6 +37,9 @@ public class RabbitService {
             }
         };
         rabbitTemplate.convertAndSend("sweetQueue", cardDto, messagePostProcessor);
+//        rabbitTemplate.convertAndSend("topicexchange","sweettopic.yyy", cardDto, messagePostProcessor);//topic 模式
+//        rabbitTemplate.convertAndSend("topicexchange","sweettopic.zzz", cardDto, messagePostProcessor);
+        System.out.println("send..............");
 
     }
 

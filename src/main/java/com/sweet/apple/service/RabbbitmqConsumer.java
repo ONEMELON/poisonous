@@ -54,6 +54,7 @@ public class RabbbitmqConsumer {
         SimpleMessageListenerContainer container = null;
         container = new SimpleMessageListenerContainer(cachingConnectionFactory);
         container.setQueueNames("sweetQueue");// 丢入queuename
+//        container.setQueueNames("topicQueue");// 丢入queuename
         container.setExposeListenerChannel(true); //
         container.setMaxConcurrentConsumers(10);// 可以提高消息并发处理
         container.setConcurrentConsumers(1);// 设置为1,在无活跃消费者保持链接
