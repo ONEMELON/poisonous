@@ -9,18 +9,17 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 import java.util.Set;
 
-
 /**
  * @Author zhujialing
- * @Create 2018-10-10 下午5:35
+ * @Create 2019-03-13 上午9:26
  * @Description:
  */
 @Service
-public class CardService {
+public class PersonalService {
+
     @Autowired HbaseTemplate hbaseTemplate;
     @Autowired Ifly flyImpl;
     @Autowired Ifly flyImpl2;
-    @Autowired RedisService redisService;
 
     public Map<String,QuotaResult> getCard(CardDto cardDto){
         Set<String> indexes = cardDto.getIndex();
@@ -31,6 +30,4 @@ public class CardService {
         return hbaseTemplate.findCard(cards,indexes);
 
     }
-
-
 }

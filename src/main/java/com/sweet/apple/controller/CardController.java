@@ -9,13 +9,9 @@ import com.sweet.apple.dto.QuotaResult;
 import com.sweet.apple.service.CardService;
 import com.sweet.apple.service.RabbitService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 
 /**
@@ -29,6 +25,7 @@ public class CardController {
     @Autowired CardService cardService;
     @Autowired RabbitService rabbitService;
 
+    List<CardDto> cardlist = new ArrayList<>();
     @RequestMapping(path = "/index", method = RequestMethod.POST)
     public Object getCard(@RequestBody CardDto cardDto) throws JsonProcessingException {
         Map<String,QuotaResult> map = new HashMap<>();
@@ -41,4 +38,14 @@ public class CardController {
         rabbitService.sendMessage(cardDto);
         return map;
     }
+
+
+    @GetMapping(path = "/heap")
+    public Object heap() throws JsonProcessingException {
+
+        while (true) {
+            cardlist.add(new CardDto("mjjjj", "jjjj"));
+        }
+    }
 }
+
